@@ -11,11 +11,16 @@
     <p>welcome to notes taking website</p>
     <div class="rigtSide">
       <p>create new notes network</p>
-      <button type="create" id="create">+New</button>
+      <input type="text" id="networkName" placeholder="Enter network name" style="display: none;">
+      <button type="submit" id="submitNewNetworkBtn" style="display: none;">
+        <span class="btn-text">Submit</span>
+        <span class="loader" style="display: none;"></span>
+      </button>
+      <button type="create" id="createNewNetworkBtn">+New</button>
     </div>
     <div class="leftSide">
       <p>import existed one from previous visit</p>
-      <input type="file">
+      <input type="file" id="importFile" accept=".json">
       <button id="submit" type="submit">Go</button>
     </div>
   </div>
@@ -27,6 +32,10 @@
         <li>chdicd</li>
         <li>chdicd</li>
       </ul>
+      <div class="description">
+        <p>Network : </p>
+        <p id="networkCreated"></p>
+      </div>
     </aside>
     <main class="editor">
       <input id="noteTitle" placeholder="Title">
