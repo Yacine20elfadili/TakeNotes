@@ -7,7 +7,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="main" id="main">
+  <div class="welcome" id="welcome">
+    <p>welcome to notes taking website</p>
+    <div class="rigtSide">
+      <p>create new notes network</p>
+      <button type="create" id="create">+New</button>
+    </div>
+    <div class="leftSide">
+      <p>import existed one from previous visit</p>
+      <input type="file">
+      <button id="submit" type="submit">Go</button>
+    </div>
+  </div>
+  <div class="main" id="main" style="display: none;">
     <aside class="sidebar">
       <button id="newNoteBtn">+ New Note</button>
       <ul id="notesList">

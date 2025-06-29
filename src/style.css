@@ -1,9 +1,28 @@
 :root {
-  --bg : #0f213b;
+  --bg: #2c3e50; /* Light background */
+  --primary: #2f8cdd;
+  --primary-dark: #2c5aa0;
+  --accent: #17a356;
+  --accent-dark: #219a52;
+  --sidebar-bg: #2c3e50;
+  --sidebar-border: #34495e;
+  --note-bg: #34495e;
+  --note-active-bg: #1abc9c;
+  --note-active-color: #fff;
+  --editor-bg: #fff;
+  --note-title-bg: #dcdcdc;
+  --note-title-border: #ecf0f1;
+  --note-title-focus: #3498db;
+  --note-content-bg: #eeeeee;
+  --save-btn-bg: #27ae60;
+  --save-btn-hover-bg: #219a52;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.1);
+  --shadow-accent: 0 2px 12px rgba(23, 163, 86, 0.3);
+  --shadow-primary: 0 2px 8px rgba(47, 140, 221, 0.2);
 }
 
-
-body , html {
+body, html {
   background-color: var(--bg);
   margin: 0;
   padding: 0;
@@ -11,6 +30,88 @@ body , html {
   font-family: sans-serif;
 }
 
+.welcome {
+  display: flex;
+  top: 120px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: var(--shadow);
+  position: relative;
+  min-height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.welcome > p {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--sidebar-bg);
+  font-size: 1.9rem;
+  margin: 0;
+  align-self: flex-start;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.rigtSide, .leftSide {
+  flex: 1;
+  background: rgba(47, 140, 221, 0.08);
+  border-radius: 12px;
+  padding: 24px 18px;
+  margin: 0 10px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 180px;
+  justify-content: center;
+  border: 1px solid rgba(47, 140, 221, 0.15);
+}
+
+.rigtSide p, .leftSide p {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+
+.leftSide button, .rigtSide button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  margin-top: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: var(--shadow-primary);
+}
+
+.leftSide button:hover, .rigtSide button:hover {
+  background: var(--accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.leftSide input[type="file"] {
+  color: var(--sidebar-bg);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
 .main {
   display: flex;
@@ -19,25 +120,25 @@ body , html {
 
 .sidebar {
   width: 15%;
-  background-color: #2c3e50;
-  color: white;
+  background-color: var(--sidebar-bg);
+  color: #fff;
   padding: 20px;
   overflow-y: auto;
-  border-right: 1px solid #34495e;
+  border-right: 1px solid var(--sidebar-border);
 }
 
 .editor {
   width: 85%;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--editor-bg);
 }
 
 #newNoteBtn {
   width: 100%;
   padding: 12px;
-  background-color: #3498db;
-  color: white;
+  background-color: var(--note-active-bg);
+  color: #fff;
   border: none;
   border-radius: 6px;
   font-size: 14px;
@@ -48,7 +149,7 @@ body , html {
 }
 
 #newNoteBtn:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-dark);
 }
 
 #notesList {
@@ -60,31 +161,29 @@ body , html {
 #notesList li {
   padding: 10px 8px;
   margin-bottom: 8px;
-  background-color: #34495e;
+  background-color: var(--note-bg);
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 
 #notesList li:hover, #notesList li.active {
-  background-color: #1abc9c;
-  color: #fff;
+  background-color: var(--note-active-bg);
+  color: var(--note-active-color);
 }
-
-
 
 #noteTitle {
   padding: 20px;
   font-size: 24px;
   font-weight: 600;
   border: none;
-  border-bottom: 2px solid #ecf0f1;
-  background-color: rgb(220, 220, 220);
+  border-bottom: 2px solid var(--note-title-border);
+  background-color: var(--note-title-bg);
   outline: none;
 }
 
 #noteTitle:focus {
-  border-bottom-color: #3498db;
+  border-bottom-color: var(--note-title-focus);
 }
 
 #noteContent {
@@ -96,7 +195,7 @@ body , html {
   outline: none;
   resize: none;
   font-family: inherit;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--note-content-bg);
 }
 
 #saveBtn {
@@ -104,8 +203,8 @@ body , html {
   bottom: 30px;
   right: 30px;
   padding: 12px 24px;
-  background-color: #27ae60;
-  color: white;
+  background-color: var(--save-btn-bg);
+  color: #fff;
   border: none;
   border-radius: 25px;
   font-size: 14px;
@@ -116,7 +215,7 @@ body , html {
 }
 
 #saveBtn:hover {
-  background-color: #219a52;
+  background-color: var(--save-btn-hover-bg);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(39, 174, 96, 0.4);
 }
