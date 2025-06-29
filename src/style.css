@@ -1,6 +1,10 @@
-body,
-html {
-  background-color: #0f213b;
+:root {
+  --bg : #0f213b;
+}
+
+
+body , html {
+  background-color: var(--bg);
   margin: 0;
   padding: 0;
   height: 100%;
